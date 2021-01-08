@@ -12,12 +12,24 @@
 			var img=new Image();
 			img.src="meditating.jpeg";
 			img.onload=function(){
-				ctx.drawImage(this,0,0,cvs.width,csv.height); 
+				ctx.drawImage(this,0,0,cvs.width,cvs.height); 
 			};
-		};			
+		}
+		function invertColor(){
+			var pixels=ctx.getImageData(0,0,cvs.width,cvs.height);  //ImageData物件
+			var data=pixels.data; //一個像素佔據4個bytes,分別是r,g,b,a (範圍0~255)
+			for(var i=0;i<data.length;i+=4){ 
+				data[i]=255-data[i]; //第一個byte是紅色
+				data[i+1]=255-data[i+1]; //綠色
+				data[i+2]=255-data[i+2]; //藍色  a是透明度，不用處理
+			}
+			ctx.putImageData(pixels,0,0);
+		}		
 	</script>
 </head>
 <body>
+	<div><a href="https://www.youtube.com/watch?v=N6agEQhtSig&t=322s">教學影片看這裡</a></div>
+	<div><button onclick="invertColor();">顏色的反轉</button></div>
 <canvas id="cvs" width="800" height="600" style="border:1px solid #000000"></canvas>
 </body>
 </html>
