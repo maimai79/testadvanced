@@ -1,0 +1,30 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<meta charset="utf-8" />
+ 	<title>CSS 3 Animation 讓文字閃爍</title>
+ 	<script type="text/javascript">
+ 	function start(){
+ 		var text=document.getElementById("text");
+ 		text.classList.add("effect");
+ 	}
+ 	</script>
+ 	<style type="text/css">
+ 	.effect{
+ 	animation:blink 1s infinite;
+ 	}
+ 	/* 定義動畫 blink是自訂名稱 */
+ 	@keyframes blink{
+ 		0%{opacity:0}
+ 		50%{opacity:1}
+ 		100%{opacity:0}
+  	}
+ 	</style>
+ </head>
+ <body>
+ 	<div><a href="https://www.youtube.com/watch?v=yz8pWNNqIDw&t=3s">影片看這裡</a></div>
+ 	<div id="text">Hello World</div>
+ 	<button onclick="start();">Start</button>
+ 
+ </body>
+ </html>

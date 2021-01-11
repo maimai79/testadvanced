@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>CSS 3 Transition </title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var box=document.getElementById("box");
+			box.style.opacity=1;
+			box.addEventListener("mouseover", function(){
+				this.style.opacity=1;  //淡入
+				this.style.backgroundColor="black";
+			});
+			box.addEventListener("mouseout", function(){
+				this.style.opacity=0.5;  //淡出
+				this.style.backgroundColor="red";
+			});
+		}
+	</script>
+	<style type="text/css">
+	.box{
+		width:100px;height:100px;background-color:red;opacity:0.5;
+		transition:opacity 1s, background-color 1s; /* 監控opacity屬性，一旦用JavaScript對opacity進行設定，瀏覽器就自動漸變處理*/
+	}
+	</style>
+</head>
+<body>
+	<div><a href="https://www.youtube.com/watch?v=7zhNzNTHtnc&list=PL-g0fdC5RMbpz9X__H5ycq1XcXxhfb5rk&index=8">影片看這邊</a></div>
+	<div class="box" id="box"></div>
+</body>
+</html>
